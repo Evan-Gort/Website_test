@@ -14,11 +14,20 @@
 
   Apex legend tracker <br>
   Enter Account Name
+  
   <form id="form" onsubmit="return false;">
     <input type="text" id="userInput" />
-    <input type="submit" onclick="othername();" />
   </form>
-
+  
+  <form id="form2" onsubmit="return false;">
+    <input type="checkbox" id="opt1" name="opt1" value="origin">
+    <label for="opt1"> Origin</label><br>
+    <input type="checkbox" id="opt2" name="opt2" value="PC">
+    <label for="opt2"> PC</label><br>
+    <input type="checkbox" id="opt3" name="opt3" value="Console">
+    <label for="opt3"> Console</label><br>
+  </form>
+  <input type="submit" onclick="othername();">
 
 
   <p id="demo"></p>
@@ -31,14 +40,18 @@
   <p2 id="demo2"></p2>
 
   <script src="script.js"></script>
+
+
+  
   <script>
+    var platform;
     var number = "ad79003017899a1730d4fd31778d15d4";
-    input;
-    url;
+    var input;
+    var url;
     function othername() {
       input = document.getElementById("userInput").value;
       document.getElementById("demo").innerHTML = input;
-      url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=origin";
+      url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
       document.getElementById("demo1").innerHTML = url;
     }
 
