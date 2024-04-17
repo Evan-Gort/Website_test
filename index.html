@@ -14,11 +14,11 @@
 
   Apex legend tracker <br>
   Enter Account Name
-  
+
   <form id="form" onsubmit="return false;">
     <input type="text" id="userInput" />
   </form>
-  
+
   <form id="form2" onsubmit="return false;">
     <input type="radio" id="opt1" name="platform" value="origin" onclick="choose('PC')">
     <label for="opt1"> PC</label><br>
@@ -42,7 +42,7 @@
   <script src="script.js"></script>
 
 
-  
+
   <script>
     var platform;
     var number = "ad79003017899a1730d4fd31778d15d4";
@@ -50,18 +50,17 @@
     var url;
     function othername() {
       input = document.getElementById("userInput").value;
-      document.getElementById("demo").innerHTML = input;
       url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
       document.getElementById("demo1").innerHTML = url;
     }
-    function choose(plat){
+    function choose(plat) {
       platform = plat;
     }
     function getapi() {
       // GET https://api.mozambiquehe.re/bridge?auth=ad79003017899a1730d4fd31778d15d4&player=whatsanalt&platform=origin
     }
     function test() {
-      document.getElementById("demo2").innerHTML = platform;
+      return url;
     }
     function search(input) {
 
@@ -71,4 +70,5 @@
 
   </script>
 </body>
+
 </html>
