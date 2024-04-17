@@ -20,11 +20,11 @@
   </form>
   
   <form id="form2" onsubmit="return false;">
-    <input type="radio" id="opt1" name="platform" value="origin">
+    <input type="radio" id="opt1" name="platform" value="origin" onclick="choose('Origin')">
     <label for="opt1"> Origin</label><br>
-    <input type="radio" id="opt2" name="platform" value="PC">
+    <input type="radio" id="opt2" name="platform" value="PC" onclick="choose('PC')">
     <label for="opt2"> PC</label><br>
-    <input type="radio" id="opt3" name="platform" value="Console">
+    <input type="radio" id="opt3" name="platform" value="Console" onclick="choose('Console')">
     <label for="opt3"> Console</label><br>
   </form>
   <input type="submit" onclick="othername();">
@@ -54,7 +54,9 @@
       url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
       document.getElementById("demo1").innerHTML = url;
     }
-
+    function choose(plat){
+      platform = plat;
+    }
     function getapi() {
       // GET https://api.mozambiquehe.re/bridge?auth=ad79003017899a1730d4fd31778d15d4&player=whatsanalt&platform=origin
     }
