@@ -1,5 +1,5 @@
 var platform;
-var apisite = '"level": 36666,';
+var apisite = '"level": 36666,"level": 366,"level": 36,';
 level = '"level"';
 var number = "ad79003017899a1730d4fd31778d15d4";
 var input;
@@ -28,10 +28,10 @@ function search(stat, place){
   var j = 0;
   var match = [];
   while(i < apisite.length){
-    var j = apisite.indexOf(level);
+    j = apisite.indexOf(level, i);
     if(j != -1){
       match.push(j);
-      i = j;
+      i = j+1;
     }else{
       i = apisite.length;
     }
