@@ -47,3 +47,26 @@ function search(stat, place){
   }
   document.getElementById("demo3").innerHTML = value;
 }
+
+ async function fetchHTML(url) {
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                return html;
+            } catch (error) {
+                console.error('Error fetching HTML:', error);
+                return null;
+            }
+        }
+        async function scrapeHTML() {
+            const url = 'https://api.mozambiquehe.re/bridge?auth=ad79003017899a1730d4fd31778d15d4&player=datgoat666&platform=PC'; 
+            const htmlContent = await fetchHTML(url);
+            
+            if (htmlContent) {
+                // Do something with the scraped HTML content
+                console.log('Scraped HTML:', htmlContent);
+                document.getElementById('demo').innerHTML = htmlContent;
+            } else {
+                console.log('Failed to scrape HTML from the URL:', url);
+            }
+        }
