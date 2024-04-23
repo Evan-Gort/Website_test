@@ -3,6 +3,7 @@ var number = "ad79003017899a1730d4fd31778d15d4";
 var apisite;
 var input;
 var url;
+
 function othername() {
   input = document.getElementById("userInput").value;
   if(input == "kills"){
@@ -17,7 +18,6 @@ function othername() {
 function choose(plat) {
   platform = plat;
 }
-
 
 function search(stat, place){
   var i = 0;
@@ -41,15 +41,15 @@ function search(stat, place){
     }
     i++;
   }
-  document.getElementById("demo").innerHTML = value;
+  return value;
 }
 
 function printlevelPrestige(){
-  document.getElementById.innerhtml = search('levelPrestige', 0);
+  document.getElementById("demo2").innerHTML = search('levelPrestige', 0);
 }
 
 function printlevel(){
-  document.getElementById.innerhtml = search('level', 0);
+  document.getElementById("demo3").innerHTML = search('level', 0);
 }
 
 async function fetchHTML(url2) {
