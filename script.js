@@ -9,19 +9,14 @@ function othername() {
   if(input == "kills"){
   document.getElementById("demo1").innerHTML = "Your a bitch and no one likes you";
   }else{
-    url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
+ url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
   document.getElementById("demo1").innerHTML = url;
   }
 }
 function choose(plat) {
   platform = plat;
 }
-function getapi() {
-  // GET https://api.mozambiquehe.re/bridge?auth=ad79003017899a1730d4fd31778d15d4&player=whatsanalt&platform=origin
-}
-function test() {
-  return url;
-}
+
 
 function search(stat, place){
   var i = 0;
@@ -45,12 +40,12 @@ function search(stat, place){
     }
     i++;
   }
-  document.getElementById("demo3").innerHTML = value;
+  document.getElementById("demo").innerHTML = value;
 }
 
- async function fetchHTML(url) {
+ async function fetchHTML(url2) {
             try {
-                const response = await fetch(url);
+                const response = await fetch(url2);
                 const html = await response.text();
                 return html;
             } catch (error) {
@@ -59,14 +54,14 @@ function search(stat, place){
             }
         }
         async function scrapeHTML() {
-            const url = 'https://api.mozambiquehe.re/bridge?auth=ad79003017899a1730d4fd31778d15d4&player=datgoat666&platform=PC'; 
-            const htmlContent = await fetchHTML(url);
+            const url2 = url;
+            const htmlContent = await fetchHTML(url2);
             
             if (htmlContent) {
                 // Do something with the scraped HTML content
                 console.log('Scraped HTML:', htmlContent);
-                document.getElementById('demo').innerHTML = htmlContent;
+                document.getElementById('demo3').innerHTML = htmlContent;
             } else {
-                console.log('Failed to scrape HTML from the URL:', url);
+                console.log('Failed to scrape HTML from the URL:', url2);
             }
         }
