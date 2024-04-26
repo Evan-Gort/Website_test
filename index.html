@@ -32,12 +32,14 @@
   
 
 
-  <button type="submit" onclick="printlevel()">level</button>
+  <button type="submit" onclick="document.getElementById('demo1').innerHTML = level + ' Level'">level</button>
   
-  <button type="submit" onclick="printlevelPrestige()">Prestige level</button>
+  <button type="submit" onclick="document.getElementById('demo2').innerHTML = prestige + ' Prestige'"">Prestige level</button>
   
-  <button type="submit" onclick="printrank()">Rank</button>
-  <button type="submit" onclick="printkills()">Kills</button>
+  <button type="submit" onclick="document.getElementById('demo3').innerHTML = rank + ' Rank'"">Rank</button>
+  
+  <button type="submit" onclick="document.getElementById('demo4').innerHTML = kills + ' Kills'">Kills</button>
+  
   <br>
   <p1 id="demo1"></p1>
   <br>

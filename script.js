@@ -5,6 +5,15 @@ var input;
 var url;
 var rev, loba, wraith, octane;
 var totalp;
+var kills;
+var rank;
+var level;
+var games;
+var prestige;
+var damage;
+var kdr;
+var wins;
+var top3;
 
 function othername() {
   input = document.getElementById("userInput").value;
@@ -12,30 +21,13 @@ function othername() {
   document.getElementById("demo1").innerHTML = "Your a bitch and no one likes you";
   }else{
   url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
-  document.getElementById("demo1").innerHTML = url;
     scrapeHTML();
   }
-  
 }
+
 
 function choose(plat) {
   platform = plat;
-}
-
-function lobasearch(stat){
-  return apisite.indexOf(stat, loba);
-}
-
-function revenantsearch(stat){
-  return apisite.indexOf(stat, revenant);
-}
-
-function wraithsearch(stat){
-  return apisite.indexOf(stat, wraith);
-}
-
-function ocatanesearch(stat){
-  apisite.indexOf(stat, octane)
 }
 
 function search(stat, place, dist){
@@ -94,7 +86,7 @@ function findlegend(legend){
 }
 
 function rank(){
-  return search("rankScore", 0, 2)
+  return search("rankName", 0, 3) + " " + search("rankDiv", 0, 2);
 }
 
 function levelPrestige(){
@@ -115,6 +107,18 @@ function gamesplayed(){
 
 function BRTop3(){
   return searchtotal('"BR Top 3"', 0, 9)
+}
+
+function kdr(){
+  return searchtotal('"kd"', 0, 9)
+}
+
+function wins(){
+  return searchtotal('"BR Wins"', 0, 9)
+}
+
+function damage(){
+  return searchtotal('"BR Damage"', 0, 9)
 }
 
 async function fetchHTML(url2) {
@@ -140,4 +144,13 @@ async function scrapeHTML() {
   } else {
     console.log('Failed to scrape HTML from the URL:', url2);
   }
+  kills = kills();
+  rank = rank();
+  level = level();
+  games = gamesplayed();
+  prestige = levelPrestige();
+  damage = damage();
+  kdr = kdr();
+  wins = wins();
+  top3 = BRTop3();
 }
