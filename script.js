@@ -3,7 +3,6 @@ var number = "ad79003017899a1730d4fd31778d15d4";
 var apisite;
 var input;
 var url;
-var rev, loba, wraith, octane;
 var totalp;
 var kills;
 var rank;
@@ -14,6 +13,8 @@ var damage;
 var kdr;
 var wins;
 var top3;
+var rankscore;
+var Name;
 
 function othername() {
   input = document.getElementById("userInput").value;
@@ -85,6 +86,9 @@ function findlegend(legend){
   return place;
 }
 
+function rankScore(){
+  return search("Rank", 0, 3);
+}
 function rank(){
   return search("rankName", 0, 3) + " " + search("rankDiv", 0, 2);
 }
@@ -121,6 +125,10 @@ function damage(){
   return searchtotal('"BR Damage"', 0, 9)
 }
 
+function Name(){
+  return search("name", 0, 3);
+}
+
 async function fetchHTML(url2) {
   try {
     const response = await fetch(url2);
@@ -153,4 +161,6 @@ async function scrapeHTML() {
   kdr = kdr();
   wins = wins();
   top3 = BRTop3();
+  rankscore = rankScore();
+  Name = Name()
 }
