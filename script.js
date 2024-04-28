@@ -1,4 +1,4 @@
-var platform;
+var platform = "none";
 var number = "ad79003017899a1730d4fd31778d15d4";
 var apisite;
 var input;
@@ -17,11 +17,11 @@ var rankscore;
 var Name;
 
 function othername() {
-  input = document.getElementById("userInput").value;
-  if(input == "kills"){
-  document.getElementById("demo1").innerHTML = "Your a bitch and no one likes you";
+  if (platform == "none"){
+    alert("Please choose a platform");
   }else{
-  url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
+    input = document.getElementById("userInput").value;
+    url = "https://api.mozambiquehe.re/bridge?auth=" + number + "&player=" + input + "&platform=" + platform;
     scrapeHTML();
   }
 }
@@ -131,8 +131,8 @@ function Name(){
 
 async function fetchHTML(url2) {
   try {
-    const response = await fetch(url2);
-    const html = await response.text();
+    response = await fetch(url2);
+    html = await response.text();
     return html;
   } catch (error) {
     console.error('Error fetching HTML:', error);
@@ -141,26 +141,43 @@ async function fetchHTML(url2) {
 }
 
 async function scrapeHTML() {
-  const url2 = url;
-  const htmlContent = await fetchHTML(url2);
-            
+  url2 = url;
+  htmlContent = await fetchHTML(url2);
+
   if (htmlContent) {
   // Do something with the scraped HTML content
   console.log('Scraped HTML:', htmlContent);
-                
+
   apisite = htmlContent;
   } else {
     console.log('Failed to scrape HTML from the URL:', url2);
   }
-  kills = kills();
-  rank = rank();
-  level = level();
-  games = gamesplayed();
-  prestige = levelPrestige();
-  damage = damage();
-  kdr = kdr();
-  wins = wins();
-  top3 = BRTop3();
-  rankscore = rankScore();
-  Name = Name()
+  if (apisite.indexOf("Error") != -1){
+    alert("Please enter a valid account name");
+  }else{
+    kills = kills();
+    rank = rank();
+    level = level();
+    games = gamesplayed();
+    prestige = levelPrestige();
+    damage = damage();
+    kdr = kdr();
+    wins = wins();
+    top3 = BRTop3();
+    rankscore = rankScore();
+    Name = Name()
+    displaystats();
+  }
+}
+
+function displaystats(){
+  document.getElementById("demo").innerHTML = "Name: " + Name;
+  document.getElementById("demo1").innerHTML = "Kills: " + kills;
+  document.getElementById("demo2").innerHTML = "Rank: " + rank;
+  document.getElementById("demo3").innerHTML = "Level: " + level;
+  document.getElementById("demo4").innerHTML = "Prestige: " + prestige;
+  document.getElementById("demo5").innerHTML = "Games Played: " + games;
+  document.getElementById("demo6").innerHTML = "Top 3: " + top3;
+  document.getElementById("demo7").innerHTML = "Wins: " + wins;
+  document.getElementById("demo6").innerHTML = "Damage: " + damage;
 }
