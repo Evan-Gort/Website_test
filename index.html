@@ -14,10 +14,12 @@
 
   Enter Account Name
 
+  <!--this form takes in the account name-->
   <form id="form" onsubmit="return false;">
     <input type="text" id="userInput" />
   </form>
 
+  <!--these are radio option to select the platform that the player uses-->
   <form id="form2" onsubmit="return false;">
     <input type="radio" id="opt1" name="platform" value="origin" onclick="choose('PC')">
     <label for="opt1"> PC</label><br>
@@ -28,6 +30,7 @@
   </form>
   <input type="submit" onclick="othername();">
 
+  <!--all of these ids are to display the stats-->
   <div style="background-color:#FFF4A3;">
     <p id="demo"></p>
     <p id="demo1"></p>
